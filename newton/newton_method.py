@@ -17,8 +17,8 @@ def newtons(x_val):
     else:
         return x_val - (f(x_val) / denominator)
 
-for i in range(1, 11):
-    iterations[f"x_{i}"] = round(newtons(current_x_val), 5)
+for i in range(1, 11): # Change 2nd value of range for more results
+    iterations[f"x_{i}"] = round(newtons(current_x_val), 5) # Change round value for different decimal places
     current_x_val = iterations[f"x_{i}"]
 
 print([(key, value) for key, value in iterations.items()], end="\n")
