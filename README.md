@@ -1,5 +1,5 @@
 # Projects from Mac
-Decided to put all of them together on one repo.
+Decided to put all of them together on one repo. From this point onward, all new projects will go on this repo instead of their own. Existing repos have been made private.
 
 # Dates Finished: Newest -> Oldest
 newton - Apr. 1, 2024  
