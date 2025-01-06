@@ -1,7 +1,7 @@
 # Projects from Mac
-Decided to put all of them together on one repo. From this point onward, all new projects will go on this repo instead of their own. Existing repos have been made private.
+These are all the projects assigned to me by my teacher Mcgowan (Mac) for the independent study.
 
-# Dates Finished: Newest -> Oldest
+# Dates Finished: Newest to Oldest
 physics - May 15, 2024   
 newton - Apr. 1, 2024  
 tank-game - Feb. 15, 2024  
