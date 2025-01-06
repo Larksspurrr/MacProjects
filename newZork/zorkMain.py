@@ -3,6 +3,9 @@ from zorkMisc import monsters as mon
 from zorkMSG import *
 import traceback
 
+# This file holds the rooms and movement mechanics
+# Monsters, items, and texts are imported from separate files to keep everything organized
+
 directions = {
 	"north_cmd": ["go north", "north", "n"],
 	"east_cmd": ["go east", "east", "e"],
@@ -634,9 +637,8 @@ skeleton_room.add_directions(maze_entrance, maze_entrance, maze_entrance, maze_e
 correct_maze_3.add_directions(maze_entrance, correct_maze_4, maze_entrance, maze_entrance, maze_entrance, maze_entrance, skeleton_room, maze_entrance, maze_entrance, maze_entrance)
 correct_maze_4.add_directions(maze_entrance, maze_entrance, correct_maze_5, correct_maze_3, maze_entrance, maze_entrance, maze_entrance, maze_entrance, maze_entrance, maze_entrance)
 correct_maze_5.add_directions(correct_maze_4, maze_entrance, maze_entrance, maze_entrance, maze_entrance, maze_entrance, maze_entrance, cyclops_room, maze_entrance, maze_entrance)
-# I HATE LOOKING AT THIS CODE, BUT WHAT CAN I DO ABOUT IT?
-# I'M SO SORRY YOU HAVE TO SEE THIS MAC
-# IT JUST BRINGS YOU BACK TO THE BEGINNING
+# I WANTED TO LEAVE THIS FOR ANOTHER DAY, BUT I GUESS I FORGOT OR GOT TOO BUSY
+# IT JUST BRINGS YOU BACK TO THE BEGINNING IF YOU CHOOSE A WRONG OPTION
 
 player = Player()
 player.position = west_house
@@ -682,7 +684,7 @@ while True:
 		if (mon["cyclops"].position == player.position) and (mon["cyclops"].alive) and (x not in directions["northwest_cmd"]):
 			mon["cyclops"].agitate(player)
 		
-		# Handles the one-word inputs
+		# Handles the one-word inputs. Could be put into a dictionary to simply match the keyword with the command
 		if x == "quit": break
 		elif x == "inventory": player.open_inventory()
 		elif x == "diagnostics": player.diagnostics()
@@ -691,6 +693,7 @@ while True:
 			if (player.position == cyclops_room) and (mon["cyclops"].alive): mon["cyclops"].death()
 			else: print("Wasn't he a sailor?\n")
 
+		# From here up to 'except', the code handles the commands by splitting the input into separate words.
 		x_parts = x.split()
 		if (len(x_parts) == 4) and (x_parts[0].strip() == "attack"):
 			player.attack(x_parts[1].strip(), x_parts[3].strip(), player)
@@ -717,5 +720,6 @@ while True:
 				it[obj].inspect()
 
 	except Exception as e:
+		# This was for debugging purposes
 		print("An error occurred:")
 		print(traceback.format_exc())
